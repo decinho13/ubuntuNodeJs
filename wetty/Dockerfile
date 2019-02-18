@@ -55,19 +55,15 @@ WORKDIR /app
 
 ENV WETTY_PORT=3000
 
-RUN apt-get install bash openssh-client openssh-server python make g++ procps \
+RUN apt-get install bash openssh-client openssh-server python make g++ procps -y \
     && npm install
 
 EXPOSE ${WETTY_PORT}
-
-EXPOSE 6006
 
 EXPOSE 8888
 
 EXPOSE 22
 
-EXPOSE 24
-
-USER $USER
+USER root
 
 CMD ["bin/entrypoint.sh"]

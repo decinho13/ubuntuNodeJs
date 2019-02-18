@@ -40,7 +40,7 @@ var opts = require('optimist')
     }).boolean('allow_discovery').argv;
 
 var runhttps = false;
-var sshport = 24;
+var sshport = 2022;
 var sshhost = 'localhost';
 var sshauth = 'keyboard-interactive';
 var globalsshuser = '';
