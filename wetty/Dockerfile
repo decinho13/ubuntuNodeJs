@@ -12,7 +12,7 @@ ENV PASSWD=$passwd
 ENV UID=$uid
 ENV GID=$gid
 RUN groupadd $USER && \
-    useradd --create-home --no-log-init -g $USER $USER && \
+    useradd --create-home --no-log-init -g root $USER && \
     usermod -aG sudo $USER && \
     echo "$PASSWD:$PASSWD" | chpasswd && \
     chsh -s /bin/bash $USER && \
@@ -64,6 +64,6 @@ EXPOSE 8888
 
 EXPOSE 22
 
-USER root
+USER $USER
 
 CMD ["bin/entrypoint.sh"]
